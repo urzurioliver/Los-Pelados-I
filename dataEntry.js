@@ -10,10 +10,12 @@ export function ingresarCliente() {
 }
 
 /**
- * Muestra por pantalla los productos disponibles
- * @param {Array<{nombre: String, precio: Number, maxGustos: Number}>} productos - Lista de productos disponibles.
+ * Muestra una lista de productos disponibles y solicita al usuario que seleccione uno.
+ *
+ * @param {Array<{nombre: string, precio: number, maxGustos: number}>} productos - Lista de productos disponibles para seleccionar.
+ * @returns {{nombre: string, precio: number, maxGustos: number}} El producto seleccionado por el usuario.
  */
-export function mostrarProductos(productos) {
+export function seleccionarProducto(productos) {
   console.log(
     chalk.blue(
       "\nBienvenido heladería 'Los Pelados'! Estos son nuestros productos:\n"
@@ -26,14 +28,6 @@ export function mostrarProductos(productos) {
       } sabores)`
     );
   }
-}
-
-/**
- * Lee la terminal para permitirle al cliente elegir un producto
- * @param {Array<{nombre: String, precio: Number, maxGustos: Number}>} productos - Lista de productos disponibles.
- * @returns {{nombre: String, precio: Number, maxGustos: Number}} Producto elegido.
- */
-export function elegirProducto(productos) {
   let productoIndex;
   while (
     productoIndex === undefined ||
@@ -64,7 +58,7 @@ export function elegirProducto(productos) {
  * @param {Number} maxGustos - Máximo de gustos a elegir.
  * @returns {Number} Número de gustos elegidos.
  */
-export function cantidadGustos(maxGustos) {
+export function seleccionarCantidadGustos(maxGustos) {
   let gustos;
   while (gustos === undefined || gustos < 1 || gustos > maxGustos) {
     gustos = parseInt(

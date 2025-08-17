@@ -1,25 +1,23 @@
 import {
-  cantidadGustos,
-  elegirProducto,
+  seleccionarCantidadGustos,
   ingresarCliente,
-  mostrarProductos,
+  seleccionarProducto,
   seleccionarSabores,
 } from "./dataEntry.js";
 
-// Cargar archivos
+// Cargar sabores y productos
 // COMPLETEN USTEDES
 let sabores;
 let productos;
 
 // Ingresar cliente
 let cliente = ingresarCliente();
-// Mostrar productos
-mostrarProductos(productos);
 // Elegir producto
-let producto = elegirProducto(productos);
+let producto = seleccionarProducto(productos);
 // Elegir cantidad de gustos
-let gustos = cantidadGustos(producto.maxGustos);
+let gustos = seleccionarCantidadGustos(producto.maxGustos);
 // Elegir sabores
 let saboresElegidos = seleccionarSabores(sabores, gustos);
+
 // Guardar pedido
 // COMPLETEN USTEDES
